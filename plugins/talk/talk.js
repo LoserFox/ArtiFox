@@ -53,6 +53,7 @@ module.exports =  {
       },
     main:data => {
         data=JSON.parse(data)
+        if (data.post_type!="message"){return}
         if (data.message=="小狐狸"){
             global.http.Send_Packet("/send_group_msg", {
                 "group_id": data.group_id,
