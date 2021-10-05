@@ -1,0 +1,10 @@
+{
+  "dependencies": {
+    "graphicsmagick": "^0.0.1",
+    "moment": "^2.29.1",
+    "node-schedule": "^2.0.0",
+    "request": "^2.88.2",
+    "sync-request": "^6.1.0",
+    "yaml": "^1.10.2"
+  }
+}

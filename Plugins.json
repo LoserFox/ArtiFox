@@ -1,0 +1,5 @@
+{
+        "talk":"./plugins/talk/talk.js",
+        "today":"./plugins/today/today.js"
+    
+}
