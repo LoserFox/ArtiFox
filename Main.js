@@ -29,7 +29,7 @@ server.listen(lib.http.Server_Setting.Post_Port, function () {
   console.log("/  _  \\| |   | |_ | |/ /    | (_) | >  < ");
   console.log("\\_/ \\_/|_|    \\__||_|\\/      \\___/ /_/\\_\\");
   console.log("                                         ");
-  console.log("-欢迎使用来自福克斯团队的ArtiFox QQBot-");
+  console.log("-欢迎使用ArtiFox QQBot-");
   console.log("现在是: " + new Date());
   for (x in config){
     plugins.push(require(config[x]))
