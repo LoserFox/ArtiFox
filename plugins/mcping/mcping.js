@@ -9,9 +9,10 @@ module.exports =  {
             data=JSON.parse(data);
             if (data.post_type!="message"){return}
             tags=data.message.split(" ");
-            if (tags[0] =="/mcping"){
+            tags[0] ? "/mcping" :()=>{
                 tags[1]=tags[1].split(":");
-                if (tags[1][0]!=undefined && tags[1][1]!=undefined){
+                tags[1][0] ? undefined :()=>{
+                    tags[1][1]?(undefined):tags[1][1]=25565
                     global.http.Send_Packet("/send_group_msg", {"group_id": data.group_id,"message" : "小狐狸正在出发去寻找伺候器..."})
                     mcping.ping({ host: tags[1][0], port: tags[1][1] }, (err, pingResults) => {
                         
