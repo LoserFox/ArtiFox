@@ -6,6 +6,7 @@
 - request
 - moment
 - graphicsmagick
+- minecraft-protocol
 - # 使用：
 - 在 https://github.com/Mrs4s/go-cqhttp/releases 下载对应平台的可执行文件, 放到 go-cqhttp 目录中
 - 安装 nodejs 环境 (建议 12.0 以上版本), 根目录运行 npm install 安装依赖
