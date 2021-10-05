@@ -1,6 +1,7 @@
 {
   "dependencies": {
     "graphicsmagick": "^0.0.1",
+    "minecraft-protocol": "^1.26.5",
     "moment": "^2.29.1",
     "node-schedule": "^2.0.0",
     "request": "^2.88.2",

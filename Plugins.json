@@ -1,5 +1,6 @@
 {
         "talk":"./plugins/talk/talk.js",
-        "today":"./plugins/today/today.js"
+        "today":"./plugins/today/today.js",
+        "mcping":"./plugins/mcping/mcping.js"
     
 }
