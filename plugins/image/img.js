@@ -8,7 +8,6 @@ module.exports =  {
         data=JSON.parse(data)
         if (data.post_type!="message"){return}
         tags=data.message.split("|");
-        console.log("生成图片")
         if (tags[0]=="/图片" && tags[1]!=undefined){
             console.log("生成图片")
             var img = gm(800, 2000, "#ffffffff")
@@ -17,7 +16,7 @@ module.exports =  {
             tags[2]?undefined:()=>{tags[2]=36}
             img.fontSize(tags[2]) 
             img.encoding('Unicode')
-            img.drawText(0, tags[2], "'"+tags[1]+"'")//整个js脚本最废时间的地方
+            img.drawText(0, tags[2], "'" + tags[1] + "'")//整个js脚本最废时间的地方
             image_path=path.join("data","img",data.user_id+".png")
             img.write(image_path, function (err) {
                 if(err){console.error(err);return;}
