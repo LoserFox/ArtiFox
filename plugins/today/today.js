@@ -1,7 +1,7 @@
-var global = require("../global")
+const global = require("../global")
 const schedule = require('node-schedule');
 const moment = require("moment")
-
+const image = require('./image.js')
 module.exports =  {
     _init: () =>{
       schedule.scheduleJob({hour:0,minute:0,second:0},()=>{
@@ -37,19 +37,8 @@ module.exports =  {
             })
         };
         if (data.message == "签到") {
-            if (global.Save_JSON.today == undefined) {
-              global.JSON.JSON_write("Today", {})
-            }
-            //方便编写
-            let user_data=global.Save_JSON.today
-            if (user_data[data.user_id] == undefined) {
-              user_data[data.user_id] = Math.round(Math.random() * 100)
-              global.JSON.JSON_save(global.Save_JSON)
-            }
-              global.http.Send_Packet("/send_group_msg", {
-                "group_id": data.group_id,
-                "message": "[CQ:at,qq=" + data.user_id + "] 您今日的人品是: " + user_data[data.user_id]
-              })
+            image.image(data)
+              
             
         };
 }}

@@ -36,7 +36,7 @@ server.listen(lib.http.Server_Setting.Post_Port, function () {
   }
   plugins.forEach(element => {if(typeof element._init=="function"){element._init()}})
   console.log("已加载插件:"+plugins.length)
-  require("./plugins/global").Save_JSON=require("./data/data.json")
+  require("./plugins/global").Save_JSON=require("./data.json")
   console.log("JSON数据初始化:"+JSON.stringify(require("./plugins/global").Save_JSON, null, "\t").slice(0,100))
   console.log("-初始化已完成-  端口: " + lib.http.Server_Setting.Post_Port);
 })
