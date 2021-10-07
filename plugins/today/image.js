@@ -1,10 +1,14 @@
-var gm = require('gm').subClass({imageMagick: true});
+var gm = require('gm')
 var global = require("../global")
 var path = require('path')
 var fs = require('fs')
 const moment = require("moment")
 
 var image = function get_image(data){
+    global.http.Send_Packet("/send_group_msg", {
+        "group_id": data.group_id,
+        "message" : "小狐狸正在画出来..."
+    });
     var today = today_random(data)
     var img_path = path.resolve(path.join("data","img",data.user_id+".png"))
     var text_img_path = path.resolve(path.join("data","img",data.user_id+"_2.png"))
@@ -13,23 +17,38 @@ var image = function get_image(data){
         if (err){console.error(err);return}
         if (rea.statusCode!=200){console.log(rea.statusCode);return; }
         fs.writeFileSync(img_path,body,"binary")
-        gm(400,540,"#FFFFFFFF")
+        var draw_text_img =gm(400,540,"#FFFFFF")
         .font(path.join("font","SourceHanSansCN-Bold.otf"))
         .fontSize(60) 
         .encoding('Unicode')
-        .drawText(20, 70, "'" + greetings() + "'")
+        if(require('os').platform=="win32"){
+        draw_text_img.drawText(20, 70, "'" + greetings() + "'")
         .fontSize(45)
         .fill('#646464') 
         .drawText(240, 70, "'" + moment().format("MM/DD") + "'")
         .font(path.join("font","SourceHanSansCN-Regular.otf"))
         .fontSize(25)
-        .fill('#82828282') 
+        .fill('#828282') 
         .drawText(20, 155, "'" + "@"+data.sender.nickname+"'")
         .drawText(20, 200, "'" + "今日人品:" +today[0] + "'")      
         .drawText(20, 235, "'" + "好感度+" +today[1] + "'")
-        .drawText(20, 270, "'" + "小狐狸现在对你好感:" +today[2] + "'")      
-        
-        .write(text_img_path, function (err) {
+        .drawText(20, 270, "'" + "小狐狸现在对你好感:" +today[2] + "'")
+        .fill('#FFFFFF')       
+        }else{
+            draw_text_img.drawText(20, 70, greetings())
+            .fontSize(45)
+            .fill('#646464')
+            .drawText(240, 70, moment().format("MM/DD"))
+            .font(path.join("font","SourceHanSansCN-Regular.otf"))
+            .fontSize(25)
+            .fill('#828282') 
+            .drawText(20, 155, "@"+data.sender.nickname)
+            .drawText(20, 200, "今日人品:" +today[0])      
+            .drawText(20, 235, "好感度+" +today[1])
+            .drawText(20, 270, "小狐狸现在对你好感:" +today[2])
+            .fill('#FFFFFF')
+        }
+        draw_text_img.write(text_img_path, function (err) {
             if(err){console.error(err);return;}
             gm(img_path).resize(960,540)
             .write(img_path, function (err) {

@@ -1,9 +1,9 @@
 /*
-安装第三方
-npm install node-schedule --save
-npm install request --save
-npm install moment --save
-npm install graphicsmagick --save
+第三方
+node-schedule
+request
+moment
+minecraft-protocol
 */
 const config = require('./Plugins.json');
 
