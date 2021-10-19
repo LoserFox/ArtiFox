@@ -1,6 +1,8 @@
 {
         "talk":"./plugins/talk/talk.js",
-        "today":"./plugins/today/today.js",
-        "mcping":"./plugins/mcping/mcping.js"
+        "today":"./plugins/history_today/today.js",
+        "mcping":"./plugins/mcping/mcping.js",
+        "sign":"./plugins/better_sign/sign.js",
+        "acghe":"./plugins/acghe/acghe.js"
 
 }

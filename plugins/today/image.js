@@ -1,4 +1,4 @@
-var gm = require('gm')
+var gm = require('gm').subClass({imageMagick: true})
 var global = require("../global")
 var path = require('path')
 var fs = require('fs')
@@ -12,7 +12,7 @@ var image = function get_image(data){
     var today = today_random(data)
     var img_path = path.resolve(path.join("data","img",data.user_id+".png"))
     var text_img_path = path.resolve(path.join("data","img",data.user_id+"_2.png"))
-    global.http.Get_Packet("http://www.dmoe.cc/random.php",{},(err,rea,body)=>{
+    global.http.Get_Packet("https://api.mtyqx.cn/tapi/random.php",{},(err,rea,body)=>{
         
         if (err){console.error(err);return}
         if (rea.statusCode!=200){console.log(rea.statusCode);return; }

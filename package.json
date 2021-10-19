@@ -1,15 +1,11 @@
 {
   "dependencies": {
-    "canvas": "^2.8.0",
     "gm": "^1.23.1",
-    "graphicsmagick": "^0.0.1",
-    "imageMagick": "^0.1.2",
     "images": "^3.2.3",
     "minecraft-protocol": "^1.26.5",
     "moment": "^2.29.1",
     "node-schedule": "^2.0.0",
     "request": "^2.88.2",
-    "sync-request": "^6.1.0",
     "yaml": "^1.10.2"
   }
 }
